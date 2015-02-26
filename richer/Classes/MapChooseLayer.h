@@ -17,6 +17,9 @@ USING_NS_CC;
 USING_NS_CC_EXT;
 
 const int kValidMoveDistance = 200;
+const int kTagBeachSprite = 10001;
+const int kTagSeaSprite = 10002;
+const int kTagMoonSprite = 10003;
 
 class MapChooseLayer : public Layer, public ScrollViewDelegate
 {

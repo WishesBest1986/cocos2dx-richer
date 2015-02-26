@@ -7,6 +7,7 @@
 //
 
 #include "MapChooseLayer.h"
+#include "SeaLayer.h"
 
 Scene* MapChooseLayer::createScene()
 {
@@ -62,12 +63,15 @@ void MapChooseLayer::addScrollView()
     
     _spritesContainer->addChild(beachSprite);
     beachSprite->setPosition(center);
+    beachSprite->setTag(kTagBeachSprite);
     
     _spritesContainer->addChild(seaSprite);
     seaSprite->setPosition(center + Vec2(_sizeVisible.width, 0));
+    seaSprite->setTag(kTagSeaSprite);
     
     _spritesContainer->addChild(moonSprite);
     moonSprite->setPosition(center + Vec2(2 * _sizeVisible.width, 0));
+    moonSprite->setTag(kTagMoonSprite);
     
     _spritesContainer->setPosition(Point::ZERO);
     _spritesContainer->setContentSize(Size(_sizeVisible.width * _spritesContainer->getChildrenCount(), _sizeVisible.height));
@@ -81,6 +85,50 @@ void MapChooseLayer::addScrollView()
     _scrollView->setDelegate(this);
 //    _scrollView->setBounceable(false);
     addChild(_scrollView);
+    
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->setSwallowTouches(false);
+    listener->onTouchBegan = [] (Touch *touch, Event *event) {
+        auto target = static_cast<Sprite *>(event->getCurrentTarget());
+        
+        auto locationInNode = target->convertToNodeSpace(touch->getLocation());
+        auto size = target->getContentSize();
+        auto rect = Rect(0, 0, size.width, size.height);
+        
+        if (rect.containsPoint(locationInNode)) {
+            
+            switch (target->getTag()) {
+                case kTagBeachSprite:
+                {
+                    
+                }
+                    break;
+                    
+                case kTagSeaSprite:
+                {
+                    auto scene = TransitionFadeBL::create(2, SeaLayer::createScene());
+                    Director::getInstance()->pushScene(scene);
+                }
+                    break;
+                    
+                case kTagMoonSprite:
+                {
+                    
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            return true;
+        }
+        
+        return false;
+    };
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, beachSprite);
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), seaSprite);
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), moonSprite);
 }
 
 bool MapChooseLayer::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event)
