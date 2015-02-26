@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "MapChooseLayer.h"
 
 USING_NS_CC;
 
@@ -31,6 +31,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
 
+    Size designSize = Size(800, 480);
+    glview->setDesignResolutionSize(designSize.width, designSize.height, ResolutionPolicy::EXACT_FIT);
+    
     // turn on display FPS
     director->setDisplayStats(true);
 
@@ -38,7 +41,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
+    auto scene = MapChooseLayer::createScene();
 
     // run
     director->runWithScene(scene);
