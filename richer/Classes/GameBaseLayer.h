@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "cocos-ext.h"
 #include "ConstUtil.h"
+#include "RichPlayer.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -22,23 +23,38 @@ const int kTableHeight = 40;
 const int kTableStartPositionX = 650;
 const int kTableStartPositionY = 450;
 
+const int kTiledWidth = 32;
+const int kTiledHeight = 32;
+
 class GameBaseLayer : public Layer
 {
 public:
     static Scene* createScene();
     virtual bool init();
     CREATE_FUNC(GameBaseLayer);
+    void onExit();
     
+    RichPlayer      *_player1;
+    RichPlayer      *_player2;
     
 protected:
     virtual void addMap();
-
-    TMXTiledMap     *_map;
+    virtual void initTiledGrid();
+    
+    TMXTiledMap         *_map;
+    int                 _tiledColsCount;
+    int                 _tiledRowsCount;
+    bool                **_canPassGrid;
+    
+    std::vector<Vec2>   _wayLayerPassVector;
     
 private:
     void drawTable();
     void addPlayer();
+    void addPlayerInfo();
     void addRightBanner();
+    void setWayPassToGrid();
+    void addGoButton();
 };
 
 #endif /* defined(__richer__GameBaseLayer__) */

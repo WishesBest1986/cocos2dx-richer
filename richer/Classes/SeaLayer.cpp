@@ -30,3 +30,20 @@ void GameBaseLayer::addMap()
     _map = TMXTiledMap::create("sea.tmx");
     addChild(_map);
 }
+
+void GameBaseLayer::initTiledGrid()
+{
+    _tiledColsCount = 20;
+    _tiledRowsCount = 15;
+    
+    _canPassGrid = new bool*[_tiledRowsCount];
+    for (int i = 0; i < _tiledRowsCount; i ++) {
+        _canPassGrid[i] = new bool[_tiledColsCount];
+    }
+    
+    for (int row = 0; row < _tiledRowsCount; row ++) {
+        for (int col = 0; col < _tiledColsCount; col ++) {
+            _canPassGrid[row][col] = false;
+        }
+    }
+}

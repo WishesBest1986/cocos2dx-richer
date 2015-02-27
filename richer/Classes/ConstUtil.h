@@ -11,9 +11,11 @@
 
 // -------------- TEXTS ----------------
 
+// GameBaseLayer
+#define STR_PLAYER_1_NAME               "player1"
+#define STR_PLAYER_2_NAME               "player2"
 
 // -------------- IMAGES ----------------
-
 
 // MapChooseLayer
 #define IMAGE_STAGE_BACKGROUND          "stage_background2.png"
@@ -23,10 +25,15 @@
 
 // GameBaseLayer
 #define IMAGE_RIGHT_BANNER              "right_banner.png"
-#define IMAGE_PLAYER_PREFIX             "player"
-#define IMAGE_PLAYER_SUFFIX             ".png"
+#define IMAGE_PLAYER_X                  "player%d.png"
+#define IMAGE_GO_BUTTON                 "go_normal.png"
+#define IMAGE_PLIST_PLAYER_ANIM_X       "player%d_anim.plist"
+#define IMAGE_PNG_PLAYER_ANIM_X         "player%d_anim.png"
+#define IMAGE_PLAYER_X_ANIM_Y           "player%d_anim_%02d.png"
 
 // -------------- OTHERS ----------------
 
+const int TAG_PLAYER_1 = 1;
+const int TAG_PLAYER_2 = 2;
 
 #endif

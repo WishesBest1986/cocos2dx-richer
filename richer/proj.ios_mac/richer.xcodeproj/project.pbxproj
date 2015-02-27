@@ -72,6 +72,7 @@
 		B98A87CA1A9F13E300816237 /* sea.tmx in Resources */ = {isa = PBXBuildFile; fileRef = B98A87B31A9F13E300816237 /* sea.tmx */; };
 		B98A87CD1A9F143D00816237 /* GameBaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A87CB1A9F143D00816237 /* GameBaseLayer.cpp */; };
 		B98A87D01A9F16B500816237 /* SeaLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A87CE1A9F16B400816237 /* SeaLayer.cpp */; };
+		B98A87D41AA054A600816237 /* RichPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A87D21AA054A600816237 /* RichPlayer.cpp */; };
 		B9E8323F1A9EE78000853C5B /* cheng.png in Resources */ = {isa = PBXBuildFile; fileRef = B9E832291A9EE78000853C5B /* cheng.png */; };
 		B9E832401A9EE78000853C5B /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9E8322B1A9EE78000853C5B /* Marker Felt.ttf */; };
 		B9E832411A9EE78000853C5B /* ji.png in Resources */ = {isa = PBXBuildFile; fileRef = B9E8322C1A9EE78000853C5B /* ji.png */; };
@@ -203,6 +204,8 @@
 		B98A87CC1A9F143D00816237 /* GameBaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBaseLayer.h; sourceTree = "<group>"; };
 		B98A87CE1A9F16B400816237 /* SeaLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SeaLayer.cpp; sourceTree = "<group>"; };
 		B98A87CF1A9F16B400816237 /* SeaLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeaLayer.h; sourceTree = "<group>"; };
+		B98A87D21AA054A600816237 /* RichPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RichPlayer.cpp; sourceTree = "<group>"; };
+		B98A87D31AA054A600816237 /* RichPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichPlayer.h; sourceTree = "<group>"; };
 		B9E665DC1A9EF61800E92F8F /* ConstUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstUtil.h; sourceTree = "<group>"; };
 		B9E832291A9EE78000853C5B /* cheng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheng.png; sourceTree = "<group>"; };
 		B9E8322B1A9EE78000853C5B /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
@@ -377,6 +380,8 @@
 				B98A87CC1A9F143D00816237 /* GameBaseLayer.h */,
 				B98A87CE1A9F16B400816237 /* SeaLayer.cpp */,
 				B98A87CF1A9F16B400816237 /* SeaLayer.h */,
+				B98A87D21AA054A600816237 /* RichPlayer.cpp */,
+				B98A87D31AA054A600816237 /* RichPlayer.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -662,6 +667,7 @@
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				B98A87D41AA054A600816237 /* RichPlayer.cpp in Sources */,
 				B98A87D01A9F16B500816237 /* SeaLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
