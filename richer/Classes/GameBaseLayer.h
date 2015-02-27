@@ -16,6 +16,7 @@
 USING_NS_CC;
 USING_NS_CC_EXT;
 
+const int kPlayerNumber = 2;
 const int kTableWidth = 50;
 const int kTableHeight = 40;
 const int kTableStartPositionX = 650;
@@ -35,7 +36,7 @@ protected:
     TMXTiledMap     *_map;
     
 private:
-    void drawTable(int playerNumber);
+    void drawTable();
     void addPlayer();
     void addRightBanner();
 };

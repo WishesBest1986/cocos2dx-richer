@@ -24,7 +24,7 @@ bool GameBaseLayer::init()
     
     addMap();
     addRightBanner();
-    drawTable(2);
+    drawTable();
     addPlayer();
     
     return true;
@@ -38,14 +38,14 @@ void GameBaseLayer::addRightBanner()
     addChild(rightBanner);
 }
 
-void GameBaseLayer::drawTable(int playerNumber)
+void GameBaseLayer::drawTable()
 {
     auto winSize = Director::getInstance()->getWinSize();
     
     auto drawNode = DrawNode::create();
     this->addChild(drawNode);
     
-    for (int i = 0; i < playerNumber; i ++) {
+    for (int i = 0; i < kPlayerNumber; i ++) {
         drawNode->drawSegment(Vec2(kTableStartPositionX, kTableStartPositionY - 2 * i * kTableHeight), Vec2(kTableStartPositionX + 3 * kTableWidth, kTableStartPositionY - 2 * i * kTableHeight), 1, Color4F(0, 1, 0, 1));
         drawNode->drawSegment(Vec2(kTableStartPositionX, kTableStartPositionY - 2 * (i + 1) * kTableHeight), Vec2(kTableStartPositionX + 3 * kTableWidth, kTableStartPositionY - 2 * (i + 1) * kTableHeight), 1, Color4F(0, 1, 0, 1));
         drawNode->drawSegment(Vec2(kTableStartPositionX + kTableWidth, kTableStartPositionY - kTableHeight - 2 * i * kTableHeight), Vec2(kTableStartPositionX + 3 * kTableWidth, kTableStartPositionY - kTableHeight - 2 * i * kTableHeight), 1, Color4F(0, 1, 0, 1));
@@ -53,7 +53,32 @@ void GameBaseLayer::drawTable(int playerNumber)
     }
 }
 
+std::string jointPlayerImage(std::string prefix, int index, std::string suffix)
+{
+    std::stringstream stream;
+    stream << prefix << index << suffix;
+    return stream.str();
+}
+
 void GameBaseLayer::addPlayer()
 {
-    
+    for (int i = 0; i < kPlayerNumber; i ++) {
+        auto player = Sprite::create(jointPlayerImage(IMAGE_PLAYER_PREFIX, (i + 1), IMAGE_PLAYER_SUFFIX));
+        player->setPosition(Vec2(kTableStartPositionX + kTableWidth / 2.0, kTableStartPositionY - (i * 2 + 1) * kTableHeight));
+        addChild(player);
+        
+        auto playerMoney = LabelTTF::create();
+        playerMoney->setString("$");
+        playerMoney->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
+        playerMoney->setFontSize(25);
+        playerMoney->setPosition(Vec2(kTableStartPositionX + kTableWidth, kTableStartPositionY - (i * 4 + 1) * kTableHeight / 2.0));
+        addChild(playerMoney);
+        
+        auto playerStrength = LabelTTF::create();
+        playerStrength->setString("+");
+        playerStrength->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
+        playerStrength->setFontSize(28);
+        playerStrength->setPosition(Vec2(kTableStartPositionX + kTableWidth, kTableStartPositionY - (i * 4 + 3) * kTableHeight / 2.0));
+        addChild(playerStrength);
+    }
 }

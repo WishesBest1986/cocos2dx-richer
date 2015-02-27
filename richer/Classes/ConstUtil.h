@@ -23,6 +23,8 @@
 
 // GameBaseLayer
 #define IMAGE_RIGHT_BANNER              "right_banner.png"
+#define IMAGE_PLAYER_PREFIX             "player"
+#define IMAGE_PLAYER_SUFFIX             ".png"
 
 // -------------- OTHERS ----------------
 
