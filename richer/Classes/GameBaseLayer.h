@@ -55,6 +55,8 @@ private:
     void addRightBanner();
     void setWayPassToGrid();
     void addGoButton();
+    
+    void goButtonCallback(Ref* pSender);
 };
 
 #endif /* defined(__richer__GameBaseLayer__) */

@@ -26,7 +26,8 @@
 // GameBaseLayer
 #define IMAGE_RIGHT_BANNER              "right_banner.png"
 #define IMAGE_PLAYER_X                  "player%d.png"
-#define IMAGE_GO_BUTTON                 "go_normal.png"
+#define IMAGE_GO_BUTTON_NORMAL          "go_normal.png"
+#define IMAGE_GO_BUTTON_PRESS           "go_press.png"
 #define IMAGE_PLIST_PLAYER_ANIM_X       "player%d_anim.plist"
 #define IMAGE_PNG_PLAYER_ANIM_X         "player%d_anim.png"
 #define IMAGE_PLAYER_X_ANIM_Y           "player%d_anim_%02d.png"

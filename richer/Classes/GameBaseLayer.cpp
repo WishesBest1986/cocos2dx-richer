@@ -120,9 +120,20 @@ void GameBaseLayer::addPlayerInfo()
 
 void GameBaseLayer::addGoButton()
 {
-    auto goButton = Sprite::create(IMAGE_GO_BUTTON);
-    goButton->setPosition(Vec2(kTableStartPositionX + 2 * kTableWidth, kTableStartPositionY - kTableHeight * 5));
-    addChild(goButton);
+    auto menu = Menu::create();
+    menu->setPosition(Vec2::ZERO);
+    
+    auto goMenuItemButton = MenuItemImage::create(IMAGE_GO_BUTTON_NORMAL, IMAGE_GO_BUTTON_PRESS);
+    goMenuItemButton->setPosition(Vec2(kTableStartPositionX + 2 * kTableWidth, kTableStartPositionY - kTableHeight * 6));
+    goMenuItemButton->setCallback(std::bind(menu_selector(GameBaseLayer::goButtonCallback), this, std::placeholders::_1));
+    menu->addChild(goMenuItemButton);
+    
+    addChild(menu);
+}
+
+void GameBaseLayer::goButtonCallback(cocos2d::Ref *pSender)
+{
+    log("go clicked");
 }
 
 void GameBaseLayer::setWayPassToGrid()
