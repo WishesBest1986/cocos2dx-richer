@@ -7,6 +7,7 @@
 //
 
 #include "RichPlayer.h"
+#include "RichGameController.h"
 
 RichPlayer::RichPlayer()
 {
@@ -94,4 +95,10 @@ void RichPlayer::addPlayerAnimation()
     _rightAnimate->retain();
     _upAnimate->retain();
     _downAnimate->retain();
+}
+
+void RichPlayer::startGo(std::vector<int> rowVector, std::vector<int> colVector)
+{
+    auto controller = RichGameController::getInstance();
+    controller->startRealGo(rowVector, colVector, this);
 }

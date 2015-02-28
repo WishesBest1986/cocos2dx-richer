@@ -7,6 +7,7 @@
 //
 
 #include "GameBaseLayer.h"
+#include "RouteNavigation.h"
 
 Scene* GameBaseLayer::createScene()
 {
@@ -134,6 +135,15 @@ void GameBaseLayer::addGoButton()
 void GameBaseLayer::goButtonCallback(cocos2d::Ref *pSender)
 {
     log("go clicked");
+    
+    RouteNavigation *navigation = RouteNavigation::getInstance();
+    navigation->getPath(_player1, 5, _canPassGrid, _tiledRowsCount, _tiledColsCount);
+    std::vector<int> rowVector = navigation->getPathRowsVector();
+    std::vector<int> colVector = navigation->getPathColsVector();
+    for (int i = 0; i < rowVector.size(); i ++) {
+        log("rowVector row is %d --- colVector col i %d", rowVector[i], colVector[i]);
+    }
+    _player1->startGo(rowVector, colVector);
 }
 
 void GameBaseLayer::setWayPassToGrid()

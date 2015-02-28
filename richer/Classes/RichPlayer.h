@@ -25,6 +25,8 @@ public:
     static RichPlayer* create(std::string name, int tag, bool enemy, int money = 50000, int strength = 100);
     bool init(std::string name, int tag, bool enemy, int money, int strength);
     
+    void startGo(std::vector<int> rowVector, std::vector<int> colVector);
+    
 private:
     void addPlayerAnimation();
     

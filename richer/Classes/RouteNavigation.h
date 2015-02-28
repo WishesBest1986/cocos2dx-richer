@@ -21,9 +21,19 @@ public:
     static RouteNavigation* getInstance();
     void getPath(Sprite* sprite, int stepsCount, bool** canPassGrid, int gridRowsCount, int gridColsCount);
 
+    enum class Direction
+    {
+        UP = 0,
+        DOWN = 1,
+        LEFT = 2,
+        RIGHT = 3
+    };
+
 private:
     RouteNavigation();
     ~RouteNavigation();
+    
+    bool isCanGoByRowCol(int row, int col, Direction direction, bool** canPassGrid);
     
     CC_SYNTHESIZE(std::vector<int>, _pathRowsVector, PathRowsVector);
     CC_SYNTHESIZE(std::vector<int>, _pathColsVector, PathColsVector);
