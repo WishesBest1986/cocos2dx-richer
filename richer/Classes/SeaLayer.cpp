@@ -33,8 +33,8 @@ void GameBaseLayer::addMap()
 
 void GameBaseLayer::initTiledGrid()
 {
-    _tiledColsCount = 20;
     _tiledRowsCount = 15;
+    _tiledColsCount = 20;
     
     _canPassGrid = new bool*[_tiledRowsCount];
     for (int i = 0; i < _tiledRowsCount; i ++) {

@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
+#include "RichPlayer.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -19,7 +20,7 @@ class RouteNavigation
 {
 public:
     static RouteNavigation* getInstance();
-    void getPath(Sprite* sprite, int stepsCount, bool** canPassGrid, int gridRowsCount, int gridColsCount);
+    void getPath(RichPlayer* player, int stepsCount, bool** canPassGrid, int gridRowsCount, int gridColsCount);
 
     enum class Direction
     {

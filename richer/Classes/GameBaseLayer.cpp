@@ -83,13 +83,19 @@ void GameBaseLayer::addPlayer()
     _player1->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
     addChild(_player1);
     
-    _player2 = RichPlayer::create(STR_PLAYER_2_NAME, TAG_PLAYER_2, false);
-    int rand2 = rand() % (_wayLayerPassVector.size());
-    auto vec2ForPlayer2 = _wayLayerPassVector.at(rand2);
-    vec2ForPlayer2.y += kTiledHeight;
-    _player2->setPosition(vec2ForPlayer2);
-    _player2->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
-    addChild(_player2);
+    int row2 = (vec2ForPlayer1.y - kTiledHeight)/ kTiledHeight;
+    int col2 = vec2ForPlayer1.x  / kTiledWidth;
+    log("Player1 postion row = %d, col = %d", row2, col2);
+    log("Player1 position x= %f, y = %f", vec2ForPlayer1.x, vec2ForPlayer1.y);
+    
+    
+//    _player2 = RichPlayer::create(STR_PLAYER_2_NAME, TAG_PLAYER_2, false);
+//    int rand2 = rand() % (_wayLayerPassVector.size());
+//    auto vec2ForPlayer2 = _wayLayerPassVector.at(rand2);
+//    vec2ForPlayer2.y += kTiledHeight;
+//    _player2->setPosition(vec2ForPlayer2);
+//    _player2->setAnchorPoint(Vec2::ANCHOR_MIDDLE_LEFT);
+//    addChild(_player2);
 }
 
 void GameBaseLayer::addPlayerInfo()

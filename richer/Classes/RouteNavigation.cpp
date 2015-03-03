@@ -32,7 +32,7 @@ RouteNavigation* RouteNavigation::getInstance()
     return _instance;
 }
 
-void RouteNavigation::getPath(cocos2d::Sprite *sprite, int stepsCount, bool **canPassGrid, int gridRowsCount, int gridColsCount)
+void RouteNavigation::getPath(RichPlayer *player, int stepsCount, bool **canPassGrid, int gridRowsCount, int gridColsCount)
 {
     // Clear vector
     _pathRowsVector.clear();
@@ -43,12 +43,15 @@ void RouteNavigation::getPath(cocos2d::Sprite *sprite, int stepsCount, bool **ca
     int currentRow, currentCol;
     
     // get player current position
-    float x = sprite->getPositionX();
-    float y = sprite->getPositionY();
+    float x = player->getPositionX();
+    float y = player->getPositionY();
     
     currentCol = x / kTiledWidth;
     // Since we add kTiledHeight in GameBaseLayer::addPlayer(), minus kTiledHeight first
     currentRow = (y - kTiledHeight) / kTiledHeight;
+    
+    _pathRowsVector.push_back(currentRow);
+    _pathColsVector.push_back(currentCol);
     
     bool **canPassGridCopy = new bool *[gridRowsCount];
     for (int i = 0; i < gridRowsCount; i ++) {
@@ -60,6 +63,14 @@ void RouteNavigation::getPath(cocos2d::Sprite *sprite, int stepsCount, bool **ca
             canPassGridCopy[row][col] = canPassGrid[row][col];
         }
     }
+    
+    int rowTemp = player->getComeFromRow();
+    int colTemp = player->getComeFromCol();
+    if (rowTemp <= -1 || colTemp <= -1) {
+        player->setComeFromRow(currentRow);
+        player->setComeFromCol(currentCol);
+    }
+    canPassGridCopy[player->getComeFromRow()][player->getComeFromCol()] = false;
     
     std::vector<bool> direction4;
     std::vector<int> canPassDirVector;
@@ -73,9 +84,9 @@ void RouteNavigation::getPath(cocos2d::Sprite *sprite, int stepsCount, bool **ca
         
         canPassDirVector.clear();
         direction4[(int) Direction::UP] = isCanGoByRowCol(currentRow, currentCol, Direction::UP, canPassGridCopy);
-        direction4[(int) Direction::DOWN] = isCanGoByRowCol(currentRow, currentCol, Direction::DOWN, canPassGrid);
-        direction4[(int) Direction::LEFT] = isCanGoByRowCol(currentRow, currentCol, Direction::LEFT, canPassGrid);
-        direction4[(int) Direction::RIGHT] = isCanGoByRowCol(currentRow, currentCol, Direction::RIGHT, canPassGrid);
+        direction4[(int) Direction::DOWN] = isCanGoByRowCol(currentRow, currentCol, Direction::DOWN, canPassGridCopy);
+        direction4[(int) Direction::LEFT] = isCanGoByRowCol(currentRow, currentCol, Direction::LEFT, canPassGridCopy);
+        direction4[(int) Direction::RIGHT] = isCanGoByRowCol(currentRow, currentCol, Direction::RIGHT, canPassGridCopy);
         
         
         for (int i = 0; i < direction4.size(); i ++) {
@@ -122,6 +133,8 @@ void RouteNavigation::getPath(cocos2d::Sprite *sprite, int stepsCount, bool **ca
         
         hasGoneNumber ++;
     }
+    player->setComeFromRow(_pathRowsVector[_pathRowsVector.size() - 2]);
+    player->setComeFromCol(_pathColsVector[_pathColsVector.size() - 2]);
 
     for (int i = 0; i  < gridRowsCount; i ++) {
         CC_SAFE_DELETE_ARRAY(canPassGridCopy[i]);

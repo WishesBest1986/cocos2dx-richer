@@ -79,11 +79,11 @@ void RichGameController::moveOneStep(RichPlayer *player)
     }
     if (distanceCol > 0) {
         moveBy = MoveBy::create(kPlayerGoTotalTime, Vec2(kTiledWidth, 0));
-        repeat = Repeat::create(player->getDownAnimate(), 1);
+        repeat = Repeat::create(player->getRightAnimate(), 1);
     }
     if (distanceCol < 0) {
         moveBy = MoveBy::create(kPlayerGoTotalTime, Vec2(-1 * kTiledWidth, 0));
-        repeat = Repeat::create(player->getDownAnimate(), 1);
+        repeat = Repeat::create(player->getLeftAnimate(), 1);
     }
     
     auto spawnAction = Sequence::create(Spawn::create(moveBy, repeat, NULL), _endGoCallFunc, NULL);
