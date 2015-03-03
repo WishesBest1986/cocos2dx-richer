@@ -32,7 +32,7 @@ RouteNavigation* RouteNavigation::getInstance()
     return _instance;
 }
 
-void RouteNavigation::getPath(RichPlayer *player, int stepsCount, bool **canPassGrid, int gridRowsCount, int gridColsCount)
+void RouteNavigation::getPath(RicherPlayer *player, int stepsCount, bool **canPassGrid, int gridRowsCount, int gridColsCount)
 {
     // Clear vector
     _pathRowsVector.clear();

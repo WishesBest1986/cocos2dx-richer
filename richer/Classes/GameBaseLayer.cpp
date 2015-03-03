@@ -75,7 +75,7 @@ void GameBaseLayer::addPlayer()
     unsigned rand_seed = (unsigned)(now.tv_sec * 1000 + now.tv_usec / 1000);
     srand(rand_seed);
     
-    _player1 = RichPlayer::create(STR_PLAYER_1_NAME, TAG_PLAYER_1, false);
+    _player1 = RicherPlayer::create(STR_PLAYER_1_NAME, TAG_PLAYER_1, false);
     int rand1 = rand() % (_wayLayerPassVector.size());
     auto vec2ForPlayer1 = _wayLayerPassVector.at(rand1);
     vec2ForPlayer1.y += kTiledHeight;
@@ -89,7 +89,7 @@ void GameBaseLayer::addPlayer()
     log("Player1 position x= %f, y = %f", vec2ForPlayer1.x, vec2ForPlayer1.y);
     
     
-//    _player2 = RichPlayer::create(STR_PLAYER_2_NAME, TAG_PLAYER_2, false);
+//    _player2 = RicherPlayer::create(STR_PLAYER_2_NAME, TAG_PLAYER_2, false);
 //    int rand2 = rand() % (_wayLayerPassVector.size());
 //    auto vec2ForPlayer2 = _wayLayerPassVector.at(rand2);
 //    vec2ForPlayer2.y += kTiledHeight;

@@ -12,7 +12,7 @@
 #include "cocos2d.h"
 #include "cocos-ext.h"
 #include "ConstUtil.h"
-#include "RichPlayer.h"
+#include "RicherPlayer.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -34,8 +34,8 @@ public:
     CREATE_FUNC(GameBaseLayer);
     void onExit();
     
-    RichPlayer      *_player1;
-    RichPlayer      *_player2;
+    RicherPlayer        *_player1;
+    RicherPlayer        *_player2;
     
 protected:
     virtual void addMap();
