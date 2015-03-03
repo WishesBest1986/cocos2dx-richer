@@ -72,10 +72,8 @@
 		B98A87CA1A9F13E300816237 /* sea.tmx in Resources */ = {isa = PBXBuildFile; fileRef = B98A87B31A9F13E300816237 /* sea.tmx */; };
 		B98A87CD1A9F143D00816237 /* GameBaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A87CB1A9F143D00816237 /* GameBaseLayer.cpp */; };
 		B98A87D01A9F16B500816237 /* SeaLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A87CE1A9F16B400816237 /* SeaLayer.cpp */; };
-		B98A87D41AA054A600816237 /* RichPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A87D21AA054A600816237 /* RichPlayer.cpp */; };
 		B98A87D71AA0712200816237 /* RouteNavigation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A87D51AA0712200816237 /* RouteNavigation.cpp */; };
 		B9B085A21AA199230008B798 /* GameBaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B98A87CB1A9F143D00816237 /* GameBaseLayer.cpp */; };
-		B9B085A81AA19B8E0008B798 /* RichGameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9B085A61AA19B8E0008B798 /* RichGameController.cpp */; };
 		B9E8323F1A9EE78000853C5B /* cheng.png in Resources */ = {isa = PBXBuildFile; fileRef = B9E832291A9EE78000853C5B /* cheng.png */; };
 		B9E832401A9EE78000853C5B /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9E8322B1A9EE78000853C5B /* Marker Felt.ttf */; };
 		B9E832411A9EE78000853C5B /* ji.png in Resources */ = {isa = PBXBuildFile; fileRef = B9E8322C1A9EE78000853C5B /* ji.png */; };
@@ -103,6 +101,8 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		F48E916B1AA6720700B8C016 /* RicherGameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F48E91671AA6720700B8C016 /* RicherGameController.cpp */; };
+		F48E916C1AA6720700B8C016 /* RicherPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F48E91691AA6720700B8C016 /* RicherPlayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,12 +207,8 @@
 		B98A87CC1A9F143D00816237 /* GameBaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBaseLayer.h; sourceTree = "<group>"; };
 		B98A87CE1A9F16B400816237 /* SeaLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SeaLayer.cpp; sourceTree = "<group>"; };
 		B98A87CF1A9F16B400816237 /* SeaLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeaLayer.h; sourceTree = "<group>"; };
-		B98A87D21AA054A600816237 /* RichPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RichPlayer.cpp; sourceTree = "<group>"; };
-		B98A87D31AA054A600816237 /* RichPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichPlayer.h; sourceTree = "<group>"; };
 		B98A87D51AA0712200816237 /* RouteNavigation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RouteNavigation.cpp; sourceTree = "<group>"; };
 		B98A87D61AA0712200816237 /* RouteNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteNavigation.h; sourceTree = "<group>"; };
-		B9B085A61AA19B8E0008B798 /* RichGameController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RichGameController.cpp; sourceTree = "<group>"; };
-		B9B085A71AA19B8E0008B798 /* RichGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichGameController.h; sourceTree = "<group>"; };
 		B9E665DC1A9EF61800E92F8F /* ConstUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstUtil.h; sourceTree = "<group>"; };
 		B9E832291A9EE78000853C5B /* cheng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheng.png; sourceTree = "<group>"; };
 		B9E8322B1A9EE78000853C5B /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
@@ -242,6 +238,10 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		F48E91671AA6720700B8C016 /* RicherGameController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RicherGameController.cpp; sourceTree = "<group>"; };
+		F48E91681AA6720700B8C016 /* RicherGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RicherGameController.h; sourceTree = "<group>"; };
+		F48E91691AA6720700B8C016 /* RicherPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RicherPlayer.cpp; sourceTree = "<group>"; };
+		F48E916A1AA6720700B8C016 /* RicherPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RicherPlayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,12 +387,12 @@
 				B98A87CC1A9F143D00816237 /* GameBaseLayer.h */,
 				B98A87CE1A9F16B400816237 /* SeaLayer.cpp */,
 				B98A87CF1A9F16B400816237 /* SeaLayer.h */,
-				B98A87D21AA054A600816237 /* RichPlayer.cpp */,
-				B98A87D31AA054A600816237 /* RichPlayer.h */,
+				F48E91691AA6720700B8C016 /* RicherPlayer.cpp */,
+				F48E916A1AA6720700B8C016 /* RicherPlayer.h */,
 				B98A87D51AA0712200816237 /* RouteNavigation.cpp */,
 				B98A87D61AA0712200816237 /* RouteNavigation.h */,
-				B9B085A61AA19B8E0008B798 /* RichGameController.cpp */,
-				B9B085A71AA19B8E0008B798 /* RichGameController.h */,
+				F48E91671AA6720700B8C016 /* RicherGameController.cpp */,
+				F48E91681AA6720700B8C016 /* RicherGameController.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -678,12 +678,12 @@
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				B98A87D41AA054A600816237 /* RichPlayer.cpp in Sources */,
 				B98A87D71AA0712200816237 /* RouteNavigation.cpp in Sources */,
 				B98A87D01A9F16B500816237 /* SeaLayer.cpp in Sources */,
-				B9B085A81AA19B8E0008B798 /* RichGameController.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				F48E916B1AA6720700B8C016 /* RicherGameController.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				F48E916C1AA6720700B8C016 /* RicherPlayer.cpp in Sources */,
 				B98A87CD1A9F143D00816237 /* GameBaseLayer.cpp in Sources */,
 				B9E832541A9EE7D500853C5B /* MapChooseLayer.cpp in Sources */,
 			);
