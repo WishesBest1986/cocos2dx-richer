@@ -18,7 +18,7 @@ RicherGameController::RicherGameController()
 
 RicherGameController::~RicherGameController()
 {
-    
+    CC_SAFE_RELEASE(_endGoCallFunc);
 }
 
 RicherGameController* RicherGameController::getInstance()
@@ -37,6 +37,7 @@ bool RicherGameController::init()
     }
     
     _endGoCallFunc = CallFunc::create(CC_CALLBACK_0(RicherGameController::endGo, this));
+    _endGoCallFunc->retain();
     
     return true;
 }
