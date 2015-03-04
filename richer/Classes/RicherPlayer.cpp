@@ -86,10 +86,40 @@ void RicherPlayer::addPlayerAnimation()
         _animUpVector.pushBack(_spriteFrameCache->getSpriteFrameByName(name));
     }
     
-    _leftAnimate = Animate::create(Animation::createWithSpriteFrames(_animLeftVector, 0.1));
-    _rightAnimate = Animate::create(Animation::createWithSpriteFrames(_animRightVector, 0.1));
-    _upAnimate = Animate::create(Animation::createWithSpriteFrames(_animUpVector, 0.1));
-    _downAnimate = Animate::create(Animation::createWithSpriteFrames(_animDownVector, 0.1));
+    char leftAnimationName[20];
+    memset(leftAnimationName, 0, sizeof(char) * 20);
+    sprintf(leftAnimationName, "left_animation_%d", _tag);
+    
+    char rightAnimationName[20];
+    memset(rightAnimationName, 0, sizeof(char) * 20);
+    sprintf(rightAnimationName, "right_animation_%d", _tag);
+    
+    char upAnimationName[20];
+    memset(upAnimationName, 0, sizeof(char) * 20);
+    sprintf(upAnimationName, "up_animation_%d", _tag);
+    
+    char downAnimationName[20];
+    memset(downAnimationName, 0, sizeof(char) * 20);
+    sprintf(downAnimationName, "down_animation_%d", _tag);
+    
+    auto animationCache = AnimationCache::getInstance();
+    if ( !animationCache->getAnimation(leftAnimationName) ) {
+        animationCache->addAnimation(Animation::createWithSpriteFrames(_animLeftVector, kPlayerGoPerFrame), leftAnimationName);
+    }
+    if ( !animationCache->getAnimation(rightAnimationName) ) {
+        animationCache->addAnimation(Animation::createWithSpriteFrames(_animRightVector, kPlayerGoPerFrame), rightAnimationName);
+    }
+    if ( !animationCache->getAnimation(upAnimationName) ) {
+        animationCache->addAnimation(Animation::createWithSpriteFrames(_animUpVector, kPlayerGoPerFrame), upAnimationName);
+    }
+    if ( !animationCache->getAnimation(downAnimationName) ) {
+        animationCache->addAnimation(Animation::createWithSpriteFrames(_animDownVector, kPlayerGoPerFrame), downAnimationName);
+    }
+    
+    _leftAnimate = Animate::create(animationCache->getAnimation(leftAnimationName));
+    _rightAnimate = Animate::create(animationCache->getAnimation(rightAnimationName));
+    _upAnimate = Animate::create(animationCache->getAnimation(upAnimationName));
+    _downAnimate = Animate::create(animationCache->getAnimation(downAnimationName));
     
     _leftAnimate->retain();
     _rightAnimate->retain();
